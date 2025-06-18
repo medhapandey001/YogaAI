@@ -1,6 +1,8 @@
 # 🧘‍♀️ YogaAI
 
 *Your Personalized Yoga & Meditation Assistant – Powered by AI, Guided by Wellness*
+![Python](https://img.shields.io/badge/python-3.10-blue)
+
 <p align="center">
   <img src="logo.png" alt="YogaAI Logo" width="200"/>
 </p>
@@ -62,11 +64,45 @@ python app.py
 ---
 
 > ✅ Replace `yourusername` with your actual GitHub username in the clone link.
+---
+
+## 🤝 Contributing
+---
+
+## 🛣️ Roadmap
+
+- [ ] Add more yoga categories (e.g., prenatal, senior-friendly)
+- [ ] Improve NLP accuracy with better preprocessing
+- [ ] Add voice input support for user concerns
+- [ ] Deploy to a live server (Render/Heroku)
+- [ ] Add user dashboard with history tracking
+
+
+Want to contribute to YogaAI?
+
+1. 🍴 Fork the repository  
+2. 🌿 Create a new branch: `git checkout -b feature/your-feature`  
+3. 💻 Make your changes  
+4. ✅ Commit and push: `git push origin feature/your-feature`  
+5. 📬 Open a pull request!
+
+All kinds of contributions are welcome — from bug fixes and new features to design suggestions!
+---
+
+## ⚙️ Model Files
+
+This project uses pre-trained machine learning models:
+
+- `model.pkl` — core yoga routine prediction model  
+- `label_encoders.pkl` and `target_encoder.pkl` — used for processing user input and mapping output
+
+> If you ever need to regenerate these files, make sure to run the training script with the appropriate dataset. (Retraining code coming soon!)
+
+
 
 ✨ *YogaAI is more than just code — it's a small step toward mindful living through intelligent tech.*  
 Feel free to explore, suggest improvements, or contribute!
 
-Ready for **Step 6: Screenshots (optional but highly effective)** or do you want to skip it and go to the next?
 // done
 
 
