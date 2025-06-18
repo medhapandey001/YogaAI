@@ -63,9 +63,11 @@ python app.py
 
 > ✅ Replace `yourusername` with your actual GitHub username in the clone link.
 
+✨ *YogaAI is more than just code — it's a small step toward mindful living through intelligent tech.*  
+Feel free to explore, suggest improvements, or contribute!
+
 Ready for **Step 6: Screenshots (optional but highly effective)** or do you want to skip it and go to the next?
 // done
-
 
 
 
