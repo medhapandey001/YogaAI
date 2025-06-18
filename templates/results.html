@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Yoga Routine</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit&display=swap" rel="stylesheet">
+  <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: radial-gradient(circle at top left,  rgba(255, 255, 255, 0.9));
+      color: 5e60ce;
+      padding: 30px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #5e60ce;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+
+    .pose-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .pose-card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 260px;
+      overflow: hidden;
+      text-align: center;
+      margin-bottom: 130px;
+
+    }
+
+    .pose-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 15px 15px 0 0;
+    }
+
+    .pose-card h3 {
+      margin: 15px 0 5px;
+      color: #5e60ce;
+      font-size: 1.2rem;
+    }
+
+    .pose-card p {
+      font-size: 14px;
+      color: #5e60ce;
+      padding: 0 10px 15px;
+    }
+
+    /* Button tweaks */
+    button {
+      /* background: linear-gradient(135deg, #5e5dbd, #404082); */
+      background: rgba(255, 255, 255, 0.9);
+      color: 5e60ce;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background: linear-gradient(135deg, #6a69d2, #56569c);
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Recommended Yoga exercises</h1>
+<br><br>
+  {% if prediction %}
+    <div class="pose-container">
+      {% if prediction == 'advanced_back_strength' %}
+        {% set poses = [("Locust Pose", "locust.jpg"), ("Bow Pose", "bow.jpg"), ("Upward Plank", "upward_plank.jpg")] %}
+      {% elif prediction == 'back_fat_burn' %}
+        {% set poses = [("Cat-Cow", "cat_cow.jpg"), ("Bridge Pose", "bridge.jpg"), ("Cobra Pose", "cobra.jpg")] %}
+      {% elif prediction == 'beginner_back_relief' %}
+        {% set poses = [("Child’s Pose", "child.jpg"), ("Cat-Cow", "cat_cow.jpg"), ("Supine Twist", "supine_twist.jpg")] %}
+      {% elif prediction == 'core_strength_advanced' %}
+        {% set poses = [("Boat Pose", "boat.jpg"), ("Plank", "plank.jpg"), ("Crow Pose", "crow.jpg")] %}
+      {% elif prediction == 'easy_mindful_relief' %}
+        {% set poses = [("Seated Meditation", "meditation.jpg"), ("Nadi Shodhana", "nostril_breathing.jpg")] %}
+      {% elif prediction == 'flow_flex_core' %}
+        {% set poses = [("Downward Dog", "downward_dog.jpg"), ("Warrior II", "warrior2.jpg"), ("Triangle Pose", "triangle.jpg")] %}
+      {% elif prediction == 'intermediate_knee_flex' %}
+        {% set poses = [("Hero Pose", "hero.jpg"), ("Half Lord of the Fishes", "half_lord.jpg"), ("Leg Raises", "leg_raises.jpg")] %}
+      {% elif prediction == 'neck_relax' %}
+        {% set poses = [("Neck Rolls", "neck_rolls.jpg"), ("Seated Side Stretch", "side_stretch.jpg"), ("Chin to Chest", "chin_chest.jpg")] %}
+      {% elif prediction == 'shoulder_relax_seq' %}
+        {% set poses = [("Cow Face Arms", "cow_face.jpg"), ("Thread the Needle", "thread_needle.jpg"), ("Arm Circles", "arm_circles.jpg")] %}
+      {% elif prediction == 'shoulder_relief' %}
+        {% set poses = [("Eagle Arms", "eagle_arms.jpg"), ("Puppy Pose", "puppy.jpg"), ("Shoulder Rolls", "shoulder_rolls.jpg")] %}
+      {% else %}
+        {% set poses = [] %}
+      {% endif %}
+
+      {% for name, img in poses %}
+        <div class="pose-card">
+          <img src="{{ url_for('static', filename='processed_poses/' + img) }}" alt="{{ name }}">
+          <h3>{{ name }}</h3>
+          <p>A great posture to support your current goal and body need.</p>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p style="text-align:center;">No prediction found. Please try again.</p>
+  {% endif %}
+</body>
+</html>

@@ -1,0 +1,360 @@
+/* old one dont change any othwer design other than form */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('./background1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  animation: fadeInUp 1.2s ease;
+}
+
+header, nav, .main-content, .form-container, .result-page, footer {
+  animation: fadeInUp 1s ease;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+header img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #5e60ce;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5e60ce;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #3c3f88;
+}
+
+.main-content {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.main-content h2 {
+  color: #5e60ce;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main-content button {
+  padding: 1rem 2rem;
+  background-color: #5e60ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.main-content button:hover {
+  background-color: #3c3f88;
+}
+
+.form-container,
+.result-page {
+  display: none;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+form input, form select, form button {
+  display: block;
+  width: 100%;
+  margin: 0.5rem 0;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+form button {
+  background-color: #5e60ce;
+  color: #fff;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #3c3f88;
+}
+
+.result-content {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.result-content strong {
+  color: #5e60ce;
+}
+
+.yoga-templates {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pose-card {
+  background: #f5f5ff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.pose-card img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.pose-card h3 {
+  color: #5e60ce;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+}
+
+/* your extra things remove them from */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-image: url('./background1.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  color: #333;
+  animation: fadeInUp 1.2s ease;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+header, nav, .main-content, .form-container, .result-page, footer {
+  animation: fadeInUp 1s ease;
+}
+
+header {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 2rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+header img {
+  height: 60px;
+  margin-bottom: 1rem;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  color: #5e60ce;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+nav {
+  background-color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem;
+  font-weight: bold;
+}
+
+nav a {
+  text-decoration: none;
+  color: #5e60ce;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #3c3f88;
+}
+
+.main-content {
+  padding: 3rem 2rem;
+  text-align: center;
+}
+
+.main-content h2 {
+  color: #5e60ce;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.main-content button {
+  padding: 1rem 2.5rem;
+  background-color: #5e60ce;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.main-content button:hover {
+  background-color: #3c3f88;
+}
+
+/* 🧼 CLEAN FORM STYLING */
+.form-container {
+  display: none; /* Hidden until Start is clicked */
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem 2rem;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+
+form input, form select {
+  width: 100%;
+  padding: 0.7rem 0.9rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #f7f7f7;
+}
+
+form button, form input[type="submit"] {
+  grid-column: span 2;
+  background-color: #5e60ce;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button:hover, form input[type="submit"]:hover {
+  background-color: #3c3f88;
+}
+
+/* Results Page */
+.result-page {
+  display: none;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.result-content {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+}
+
+.result-content strong {
+  color: #5e60ce;
+}
+
+/* Yoga Pose Cards */
+.yoga-templates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.pose-card {
+  background: #f5f5ff;
+  padding: 1rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 250px;
+}
+
+.pose-card img {
+  max-width: 100%;
+  border-radius: 12px;
+}
+
+.pose-card h3 {
+  color: #5e60ce;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #777;
+}
