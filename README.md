@@ -24,7 +24,8 @@
   Clean, responsive front-end built with HTML, CSS, and JavaScript.
 
 - 🔒 **Secure Login System**  
-  Flask-powered authentication system with separate login/signup pages for user data protection.
+  Flask-powered authentication system with secure SQLite-based storage using SQLAlchemy ORM
+  , and separate login/signup pages for user data protection.
 
 ---
 ## 🛠️ Tech Stack
@@ -44,6 +45,10 @@
 ├── target_encoder.pkl # Encoded output labels
 ├── requirements.txt # Python dependencies
 ├── logo.png # Project logo
+├── yogaai.db            # SQLite database containing registered users
+
+  
+
 
 ## 🚀 Getting Started
 
@@ -52,13 +57,19 @@ Follow these steps to set up and run YogaAI locally:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/yogaai.git
+git clone https://github.com/medhapandey001/YogaAI.git
+
 //run these commands one by one in cmd//
 cd yogaai
 python -m venv venv
 venv\Scripts\activate
 pip install -r requirements.txt
 python app.py
+
+Note: On the first run, the app automatically creates a sample user:
+Email: test@example.com  
+Password: test123
+
 //open browser and visit http://127.0.0.1:5000//
 
 ---
