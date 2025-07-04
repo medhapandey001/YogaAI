@@ -6,16 +6,16 @@ import pickle
 import numpy as np
 import traceback
 import os
-import pymysql
-pymysql.install_as_MySQLdb()
-def get_db_connection():
-    return pymysql.connect(
-        host='localhost',
-        user='root',
-        password='',
-        database='yogaai',
-        cursorclass=pymysql.cursors.DictCursor
-    )
+#import pymysql
+#pymysql.install_as_MySQLdb()
+#def get_db_connection():
+ #   return pymysql.connect(
+ #       host='localhost',
+ #       user='root',
+ #       password='',
+ #       database='yogaai',
+  #      cursorclass=pymysql.cursors.DictCursor
+ #   )
 
 app = Flask(__name__)
 app.secret_key = 'medha_yogaai_secret_123'
@@ -24,7 +24,11 @@ app.secret_key = 'medha_yogaai_secret_123'
 from flask_sqlalchemy import SQLAlchemy
 
 # MySQL database configuration
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/users'
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:@localhost/users'
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'yogaai.db')
+
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Initialize the database connection
@@ -116,14 +120,9 @@ def login():
         email = request.form['email']
         password = request.form['password']
 
-        conn = get_db_connection()
-        cur = conn.cursor()
-        cur.execute("SELECT * FROM users WHERE email = %s", (email,))
-        user = cur.fetchone()
-        cur.close()
-        conn.close()
+        user = User.query.filter_by(email=email).first()
 
-        if user and check_password_hash(user['password'], password):
+        if user and check_password_hash(user.password, password):
             session['loggedin'] = True
             session['email'] = email
             return redirect(url_for('welcome'))
@@ -131,6 +130,7 @@ def login():
             error = 'Invalid email or password.'
 
     return render_template('login.html', error=error)
+
 @app.route('/welcome')
 def welcome():
     return render_template('welcome.html')
@@ -140,14 +140,12 @@ def logout():
     return render_template('logout.html')
 
    
-
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     show_alert = False
     show_error = None
 
     if request.method == 'POST':
-        name = request.form['name']
         email = request.form['email']
         password = request.form['password']
         cpassword = request.form['cpassword']
@@ -155,24 +153,19 @@ def signup():
         if password != cpassword:
             show_error = "Passwords do not match"
         else:
-            conn = get_db_connection()
-            cur = conn.cursor()
-            cur.execute("SELECT * FROM users WHERE email = %s", (email,))
-            existing_user = cur.fetchone()
+            existing_user = User.query.filter_by(email=email).first()
 
             if existing_user:
                 show_error = "An account with this email already exists"
             else:
                 hashed_pw = generate_password_hash(password)
-                cur.execute("INSERT INTO users (name, email, password, dt) VALUES (%s, %s, %s, NOW())",
-                            (name, email, hashed_pw))
-                conn.commit()
+                new_user = User(email=email, password=hashed_pw)
+                db.session.add(new_user)
+                db.session.commit()
                 show_alert = True
 
-            cur.close()
-            conn.close()
-
     return render_template('signup.html', show_alert=show_alert, show_error=show_error)
+
 
 
 
@@ -181,6 +174,17 @@ def signup():
  
 if __name__ == '__main__':
     with app.app_context():
-     db.create_all()
+        db.create_all()
+
+        # ✅ TEMP: Add a sample user inside app context
+        if not User.query.filter_by(email='test@example.com').first():
+            sample_user = User(
+                email='test@example.com',
+                password=generate_password_hash('test123')
+            )
+            db.session.add(sample_user)
+            db.session.commit()
+            print("✅ Sample user added to yogaai.db")
 
     app.run(debug=True)
+
