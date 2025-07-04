@@ -116,6 +116,29 @@ Feel free to explore, suggest improvements, or contribute!
 
 // done
 
+---
+
+## 🖼️ Project Screenshots
+
+### 🌅 Start Page
+![Start Page](screenshots/startpage.png)
+
+### 🔐 Login Page
+![Login Page](screenshots/login.png)
+
+### 📝 Signup Page
+![Signup Page](screenshots/signup.png)
+
+### 🧘‍♀️ Welcome Page
+![Welcome Page](screenshots/homepage.png)
+
+### 📋 Prediction Page
+![Prediction Page](screenshots/prediction.png)
+
+### 📊 Result Page
+![Result Page](screenshots/result.png)
+
+
 
 
 
